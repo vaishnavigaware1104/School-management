@@ -44,7 +44,9 @@ export default function ShowSchools() {
                         </div>
                         <h3>{s.name}</h3>
                         <p>{s.address}</p>
-                        <p><b>{s.city}</b></p>
+                        <p><b>City:</b> {s.city}</p>
+                        <p><b>Contact:</b> {s.contact}</p>
+                        <p><b>Email:</b> {s.email_id}</p>
                     </div>
                 ))}
             </div>

@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# School Management Project
 
-## Getting Started
+A mini Next.js project to manage school information. Users can **add new schools** and **view the list of schools**, with images, contact info, and other details.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Add School**: Form to enter school name, address, city, state, contact, email, and upload an image.  
+- **View Schools**: Displays all schools in a responsive card layout.  
+- **Responsive Design**: Works on both desktop and mobile devices.  
+- **Database**: MySQL database stores all school information.  
+- **Image Upload**: Stores school images in the `public/schoolImages` folder.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup Instructions
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. **Clone the Repository**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`git clone https://github.com/vaishnavigaware1104/School-management.git`  
+`cd School-management`
 
-## Learn More
+2. **Install Dependencies**
 
-To learn more about Next.js, take a look at the following resources:
+`npm install`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Setup the MySQL Database**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The project requires a MySQL database to work. An SQL dump file `reno_assignment.sql` is included in the repository.  
 
-## Deploy on Vercel
+- **Create a new database** (any name you like):
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`CREATE DATABASE school_management;`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Import the provided SQL dump**:
+
+`mysql -u your_username -p school_management < reno_assignment.sql`
+
+> ⚠️ Note: The project will **not work** without importing this SQL dump, as it creates the required table and sample data.
+
+- **Create `.env.local`** in the project root and add your database credentials:
+
+DB_HOST=localhost
+DB_USER=your_username
+DB_PASSWORD=your_password
+DB_NAME=school_management
+
+
+4. **Run the Project**
+
+`npm run dev`
+
+Open [http://localhost:3000](http://localhost:3000) in your browser. You should see the **Add School** page and can view the list of schools.
+
+## Notes for Assessors
+
+- The project uses **Next.js** and **react-hook-form**.  
+- All images are stored in `public/schoolImages`.  
+- To see the **full functionality** including data, you **must import `reno_assignment.sql`** into MySQL.  
+- The project is **responsive** and works on both mobile and desktop.  
+- You can see the **UI responsiveness** Vercel, but the database must be set up locally to see the actual school data.
